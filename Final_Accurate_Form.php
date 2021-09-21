@@ -49,7 +49,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 </html>
 <?php
 if(isset($Submit)){
-    $connection=mysqli_connect('localhost', 'root', '', 'Login_App');
+    $connection= mysqli_connect('localhost', 'root', '', 'Login_App');
+    if($connection->connect_error) {
+        echo $connection->connect_error;
+    }
     if($connection){
         echo"we are connected";
     }else{
